@@ -16,7 +16,7 @@ cd solid-octo-tribble
 
 3. Instale as dependências com Pip:
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 
