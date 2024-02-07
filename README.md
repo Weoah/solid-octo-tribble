@@ -5,22 +5,22 @@
 ## Instalando as dependências:
 
 1. Clone o repositório do projeto:
-`git clone https://github.com/Weoah/solid-octo-tribble.git`
+```git clone https://github.com/Weoah/solid-octo-tribble.git```
 
 2. Navegue até a pasta do projeto:
-`cd solid-octo-tribble`
+```cd solid-octo-tribble```
 
 3. Instale as dependências com Pip:
-`pip install requirements.txt`
+```pip install requirements.txt```
 
 
 ## Rodando o aplicativo:
 
 1. Inicie o servidor Flask:
-`flask run --reload`
+```flask run --reload```
 
 2. Acesse a aplicação via web:
-`http://127.0.0.1:5000`
+```http://127.0.0.1:5000```
 
 
 ## Observações:
