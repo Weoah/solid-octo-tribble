@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" class="w-100 h-100">
   <head>
     <link
       rel="stylesheet"
@@ -42,24 +42,30 @@
     <title>Login</title>
   </head>
 
-  <body>
+  <body class="w-100 h-100">
+    
     <script src="{{ url_for('static', filename='js/packages.js') }}"></script>
     <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 
-    <div class="wrapper d-flex flex-column justify-content-center">
-      <div class="text-center mt-4 name">Cadastro</div>
-      <form class="p-3 mt-3">
-        <div class="form-field d-flex align-items-center">
-          <span class="far fa-user"></span>
-          <input type="text" id="login--name" placeholder="Usuário" />
-        </div>
-        <div class="form-field d-flex align-items-center">
-          <span class="fas fa-key"></span>
-          <input type="password" id="login--password" placeholder="Senha" />
-        </div>
-        <button id="login--request" class="btn mt-3">Login</button>
-      </form>
+    <div class="d-flex align-items-center justify-content-center flex-column w-100 h-100">
+      <div class="wrapper d-flex flex-column justify-content-center">
+        <div class="text-center mt-4 name">Cadastro</div>
+        <form id="sendLogin" class="p-3 mt-3">
+          <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input type="text" id="login--name" placeholder="Usuário" />
+          </div>
+          <div class="form-field d-flex align-items-center">
+            <span class="fas fa-key"></span>
+            <input type="password" id="login--password" placeholder="Senha" />
+          </div>
+          <div class="messageError w-100 text-center d-none">
+            <small class="w-100">Usuário ou Senha Incorretos!</small>
+          </div>
+          <button id="login--request" class="btn mt-3">Login</button>
+        </form>
+      </div>
     </div>
   </body>
 
