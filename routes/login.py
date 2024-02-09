@@ -7,12 +7,12 @@ login_route = Blueprint('login', __name__)
 """
 Rota de login
 
-    - /login/ (GET) - Verifica se há usuário e senha no servidor
+    - /login/ (POST) - Verifica se há usuário e senha no servidor
         params
             user: usuário de login
             pass: senha do usuário
 
-    - /login/ (POST) - Adiciona novo usuário ao servidor
+    - /login/new (POST) - Adiciona novo usuário ao servidor
         params
             user: usuário de login
             pass: senha do usuário
@@ -22,7 +22,7 @@ Rota de login
 """
 
 
-@login_route.route('/')
+@login_route.route('/', methods=['POST'])
 def login():
     response = False
     data = request.json
@@ -34,7 +34,7 @@ def login():
     return {'status': response}
 
 
-@login_route.route('/', methods=['POST'])
+@login_route.route('/new', methods=['POST'])
 def create_user():
     data = request.json
     new_user = {
