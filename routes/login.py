@@ -12,7 +12,7 @@ Rota de login
             user: usuário de login
             pass: senha do usuário
 
-    - /login/new (POST) - Adiciona novo usuário ao servidor
+    - /login/create (POST) - Adiciona novo usuário ao servidor
         params
             user: usuário de login
             pass: senha do usuário
@@ -34,7 +34,7 @@ def login():
     return {'status': response}
 
 
-@login_route.route('/new', methods=['POST'])
+@login_route.route('/create', methods=['POST'])
 def create_user():
     data = request.json
     new_user = {
