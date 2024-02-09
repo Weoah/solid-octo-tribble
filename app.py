@@ -1,15 +1,15 @@
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, render_template, session
+
+from routes.login import login_route
 
 app = Flask(__name__)
+app.register_blueprint(login_route, url_prefix='/ajax/login')
 
 
 @app.route('/')
-def login():
-    return render_template('login.html')
-
-
-@app.route('/index')
 def index():
+    if 'user' not in session:
+        return render_template('login.html')
     return render_template('index.html')
 
 
