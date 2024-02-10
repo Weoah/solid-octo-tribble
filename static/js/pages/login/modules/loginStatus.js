@@ -16,7 +16,7 @@ const loginStatus = {
     modifyButton.successButton("#login--request");
 
     setTimeout(() => {
-      window.location.href = "/index";
+      window.location.reload();
       setTimeout(() => {
         this.preSetPageLogin();
       }, 1);

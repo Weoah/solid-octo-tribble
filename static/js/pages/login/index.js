@@ -1,6 +1,6 @@
-import AjaxSend from "../globalModules/ajaxSend.js";
 import modifyButton from "../globalModules/modifyButton.js";
 import loginStatus from "./modules/loginStatus.js";
+import ajaxSend from "../globalModules/ajaxSend.js";
 
 // Click Event to Login
 $("#login--request").on("click", async function (event) {
@@ -9,11 +9,18 @@ $("#login--request").on("click", async function (event) {
   const login = $("#login--name").val();
   const password = $("#login--password").val();
 
-  //   const response = await AjaxSend("url", "POST", { login, password });
+  const data = {
+    user: login,
+    pass: password,
+  };
+
+  const response = await ajaxSend.post("/login", data);
+
+  console.log(response);
 
   // Aplica timer de 800 milesegundos para simular a requisição.
   setTimeout(() => {
-    if (true) {
+    if (response.status) {
       console.log("Success");
       loginStatus.successLogin();
     } else {

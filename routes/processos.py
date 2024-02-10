@@ -2,7 +2,7 @@ from flask import Blueprint, request
 
 from database.processos import PROCESSOS
 
-processo_route = Blueprint('processo', __name__)
+processo_route = Blueprint('processos', __name__)
 
 """
 Rota de processos
@@ -33,13 +33,14 @@ Rota de processos
 """
 
 
-@processo_route.route('/')
+@processo_route.route('/', methods=['POST'])
 def lista_processos():
     data_processos = []
     for processo in PROCESSOS:
         processo['url'] = processo_url(processo['numero'])
         data_processos.append(processo)
-    return {'status': True, 'data': data_processos}
+    processes_len = len(PROCESSOS)
+    return {'recordsFiltered': processes_len, 'data': data_processos}
 
 
 @processo_route.route('/create', methods=['POST'])
@@ -51,25 +52,27 @@ def create_processo():
         'numero': data['number'],
         'prazo': data['time']
     }
+    PROCESSOS.append(new_processo)
     return {'status': True, 'data': new_processo}
 
 
 @processo_route.route('/get')
 def get_processo():
     processo = None
-    data = request.json
+    processo_id = request.args.get('processo_id')
     for p in PROCESSOS:
-        if p['id'] == data['processo_id']:
+        if p['id'] == int(processo_id):
             processo = p
     return {'status': True, 'data': processo}
 
 
-@processo_route.route('/update')
+@processo_route.route('/update', methods=['POST'])
 def update_processo():
     processo = None
     data = request.json
+    processo_id = request.json.get('processo_id')
     for p in PROCESSOS:
-        if p['id'] == data['processo_id']:
+        if p['id'] == int(processo_id):
             p['nome'] = data['name']
             p['numero'] = data['number']
             p['prazo'] = data['time']
@@ -80,8 +83,8 @@ def update_processo():
 @processo_route.route('/delete')
 def delete_processo():
     global PROCESSOS
-    data = request.json
-    PROCESSOS = [p for p in PROCESSOS if p['id'] != data['processo_id']]
+    processo_id = request.args.get('processo_id');
+    PROCESSOS = [p for p in PROCESSOS if p['id'] != int(processo_id)]
     return {'status': True}
 
 
