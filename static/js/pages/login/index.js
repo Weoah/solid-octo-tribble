@@ -14,7 +14,7 @@ $("#login--request").on("click", async function (event) {
     pass: password,
   };
 
-  const response = await ajaxSend.post("/login", data);
+  const response = await ajaxSend.post("/login/", data);
 
   console.log(response);
 
