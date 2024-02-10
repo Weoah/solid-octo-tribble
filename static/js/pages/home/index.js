@@ -83,6 +83,7 @@ $("#tableMain").on("click", ".viewProcess", function () {
 // Mostra Modal Deletar.
 $("#tableMain").on("click", ".remove_table", async function () {
   $("#modalDelete").modal("show");
+  modifyButton.defaultButton(".delete_confirm", "Confirmar");
   $("#error_delete").hide();
   const id = $(this).attr("id");
   $(".delete_confirm").attr("data-id", id);
