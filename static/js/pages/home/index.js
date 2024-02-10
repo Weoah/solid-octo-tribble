@@ -2,6 +2,7 @@ import modifyButton from "../globalModules/modifyButton.js";
 import modalProcess from "./modules/modalProcess.js";
 import ajaxSend from "../globalModules/ajaxSend.js";
 import renderTable from "./modules/renderTable.js";
+import renderBox from "./modules/renderBox.js";
 
 var tableProcesso;
 
@@ -30,7 +31,7 @@ $(document).on("click", "#addNewProcess, .edit_table", async function () {
   modalProcess.preSetModal();
 
   if (id === "addNewProcess") {
-    $(".changeTitleModal").text("Adicionar Processo");
+    $(".changeTitleModal").text("Acompanhar Processo");
     $("#saveProcess").attr("data-type", "add");
   } else {
     $(".spinnerModal").fadeIn(1);
@@ -71,6 +72,7 @@ $("#saveProcess").on("click", async function () {
       : modalProcess.errorModal(response);
 
     tableProcesso.ajax.reload();
+    renderBox.renderAllBox();
   }, 1000);
 });
 
@@ -111,6 +113,7 @@ $(".delete_confirm").on("click", async function () {
       setTimeout(() => {
         $("#modalDelete").modal("hide");
         tableProcesso.ajax.reload();
+        renderBox.renderAllBox();
       }, 600);
     } else {
       $("#error_delete").fadeIn();
@@ -142,4 +145,5 @@ $(".quitUser").on("click", function () {
 $(function () {
   tableProcesso = renderTable();
   $("body").tooltip({ selector: "[data-toggle=tooltip]" });
+  renderBox.renderAllBox();
 });

@@ -46,7 +46,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index</title>
   </head>
-
+ 
   <body id="page-top">
     <!-- Load Scripts -->
 
@@ -95,17 +95,17 @@
         <li class="nav-item active">
           <a class="nav-link" href="#">
             <i class="fa-solid fa-desktop"></i>
-            <span>Dashboard</span>
+            <span>Processos</span>
           </a>
         </li>
         <!-- Divider -->
 
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">
             <i class="fa-regular fa-user"></i>
             <span>Usuário - Cadastrar</span>
           </a>
-        </li>
+        </li> -->
         <hr class="sidebar-divider" />
       </ul>
       <!-- End of Sidebar -->
@@ -128,7 +128,7 @@
             <form
               class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
             >
-              <div class="input-group">Dashboard</div>
+              <div class="input-group">Processos</div>
             </form>
 
             <!-- Topbar Navbar -->
@@ -180,7 +180,7 @@
                   role="button"
                 >
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >Douglas McGee</span
+                    >{{session["user"]}}</span
                   >
                 </a>
                 <!-- Dropdown - User Information -->
@@ -217,7 +217,7 @@
                         >
                           Processos Abertos
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <div id="openProcessos" class="h5 mb-0 font-weight-bold text-gray-800">
                           18
                         </div>
                       </div>
@@ -281,7 +281,7 @@
                         >
                           Quantidade Total de Processos
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <div id="countProcessos" class="h5 mb-0 font-weight-bold text-gray-800">
                           20
                         </div>
                       </div>
@@ -304,7 +304,7 @@
                   class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm p-2"
                   style="cursor: pointer"
                 >
-                  <i class="fa-solid fa-plus"></i> Adicionar Processo
+                  <i class="fa-solid fa-plus"></i> Acompanhar Processo
                 </a>
               </div>
               <div class="w-100">
@@ -505,7 +505,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="remove_modal_title">
-              Deletar Processo
+              Deixar de Acompanhar Processo
             </h5>
             <div>
               <i
@@ -527,7 +527,7 @@
 
             <div>
               <p class="my-3" style="font-weight: bold">
-                Deletar este Processo?
+                Deixar de Acompanhar este Processo?
               </p>
             </div>
             <div>

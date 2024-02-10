@@ -37,7 +37,7 @@ const columnsTable = [
       return `
                 <span style="display: flex">
                     <i class="far fa-edit mx-1 p-2 edit_table cursorClick" id="${data}" data-toggle="tooltip" data-placement="top" title="Editar"></i> 
-                    <i class="fa-solid fa-eye p-2 mx-1 viewProcess cursorClick" id="${url}" data-toggle="tooltip" data-placement="top" title="Visualizar Processo"></i>
+                    <i class="fa-solid fa-eye p-2 mx-1 viewProcess cursorClick" id="${url}" data-toggle="tooltip" data-placement="top" title="Processo Público"></i>
                     <i class="fas fa-trash-alt p-2 mx-1 remove_table cursorClick" id="${data}" data-toggle="tooltip" data-placement="top" title="Deletar"></i>
                 </span>
                 `;
